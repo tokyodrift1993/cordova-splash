@@ -18,5 +18,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
       - name: Install dependencies
-        uses: semabit/gh-workflows/.github/actions/yarn-install@v1
+        run: yarn install --frozen-lockfile
